@@ -14,17 +14,17 @@ administration interface.
 
 1. make sure you are using a python virtual environment
 
-    virtualenv ~/Dev/virtualenv/projectname
-    . ~/Dev/virtualenv/projectname/bin/activate
-    cd ~/Dev/projects/projectname/
+     virtualenv ~/Dev/virtualenv/projectname;
+     . ~/Dev/virtualenv/projectname/bin/activate;
+     cd ~/Dev/projects/projectname/;
 
 2. install it from pypi
 
-    pip install cmsplugin-embedded-menu
+    `pip install cmsplugin-embedded-menu`
 
 3. or, install it from github
 
-    pip install git+https://github.com/airtonix/cmsplugin-embedded-menu
+    `pip install git+https://github.com/airtonix/cmsplugin-embedded-menu`
 
 ## Configuration
 
@@ -48,22 +48,23 @@ the template selector combo dropdown in the admin interface.
 
 For example, if your django project was at :
 
-    ~/Dev/Django/MyProjectName/
+    `~/Dev/Django/MyProjectName/`
 
 And you had a django application named `SomethingSomethingSomething` at :
 
-    ~/Dev/Django/MyProjectName/SomethingSomethingSomething/
+    `~/Dev/Django/MyProjectName/SomethingSomethingSomething/`
 
 Then templates for this plugin could be found at :
 
-    ~/Dev/Django/MyProjectName/SomethingSomethingSomething/templates/cmsplugin_embeddedmenu/layouts/*.html
+    `~/Dev/Django/MyProjectName/SomethingSomethingSomething/templates/cmsplugin_embeddedmenu/layouts/*.html`
 
 In fact, anywhere django looks for templates, you can place the following tree :
 
+```
     /cmsplugin_embeddedmenu
         /layouts
             /*.html
-
+```
 
 ### Customising Templates
 
