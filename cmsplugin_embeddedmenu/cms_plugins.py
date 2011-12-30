@@ -18,12 +18,12 @@ from menus.templatetags.menu_tags import (
 )
 
 from models import (
-  Settings,
+  MenuPluginSettings,
   TEMPLATE_PATH,
 )
 
 class MenuPlugin(CMSPluginBase):
-    model = Settings
+    model = MenuPluginSettings
     name = _("Embedded Menu")
     render_template = "cmsplugin_menu/menu.html"
 

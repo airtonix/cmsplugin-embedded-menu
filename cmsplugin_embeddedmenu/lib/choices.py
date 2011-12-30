@@ -8,19 +8,11 @@ from django.utils.importlib import import_module
 from cms.models import Placeholder, Page
 
 from .formatting import deslugify
-from ..urls import SYNCDB_FINISHED
 
 class DynamicChoice(object):
     """
     Trivial example of creating a dynamic choice
     """
-    ready=False
-
-    def __new__(self,*args, **kwargs):
-        if SYNCDB_FINISHED:
-            self.ready=True
-        else:
-            pass
 
     def __iter__(self, *args, **kwargs):
         for choice in self.generate():

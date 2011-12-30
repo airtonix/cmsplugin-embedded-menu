@@ -5,13 +5,12 @@ from cms.models.pluginmodel import CMSPlugin
 
 from .lib.choices import (
   DynamicTemplateChoices,
-  PagesDynamicChoices,
   PageAttributeDynamicChoices,
 )
 
 TEMPLATE_PATH = os.path.join("cmsplugin_menu", "layouts")
 
-class Settings(CMSPlugin):
+class MenuPluginSettings(CMSPlugin):
     """ Stores options for cmsplugin that Embeds a menu
     """
 
