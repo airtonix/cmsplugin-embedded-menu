@@ -25,7 +25,8 @@ from models import (
 class MenuPlugin(CMSPluginBase):
     model = MenuPluginSettings
     name = _("Embedded Menu")
-    render_template = "cmsplugin_menu/menu.html"
+    render_template = "cmsplugin_embeddedmenu/base.html"
+    admin_preview = False
 
     def render(self, context, instance, placeholder):
 
@@ -33,35 +34,32 @@ class MenuPlugin(CMSPluginBase):
             # If there's an exception (500), default context_processors may not be called.
             request = context['request']
         except KeyError:
-            return "error"
+            return "There is no  `request` object in the context."
 
-        levels = 100
-
-        root_id = 'home'
-        namespace = 'home'
-        from_level = 1
-        to_level = 100
-        extra_inactive = 100
-        extra_active = 100
-        next_page = False
-
+        root_page = instance.root
+        root_page_url = root_page.get_absolute_url()
+        from_level = instance.start_level
+        to_level = instance.depth
 
         nodes = menu_pool.get_nodes(request)
-        children = []
+
+        children = list()
+        root_node = None
+
+        # Find the root node
         for node in nodes:
-            if node.selected:
-                cut_after(node, levels, [])
-                children = node.children
-                for child in children:
-                    child.parent = None
-                children = menu_pool.apply_modifiers(children, request, post_cut=True)
+            if not root_node and node.url == root_page_url:
+                root_node = node
+
+        if root_node:
+            if instance.include_root :
+                children += (root_node, )
+            else:
+                children += root_node.children
+
         context.update({
-            'children':children,
-            'from_level':0,
-            'to_level':0,
-            'extra_inactive':0,
-            'extra_active':0
+            'MenuItems' : children,
         })
         return context
 
-plugin_pool.register_plugin(CMSMenu)
+plugin_pool.register_plugin(MenuPlugin)

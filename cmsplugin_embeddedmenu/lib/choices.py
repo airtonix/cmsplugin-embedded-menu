@@ -13,6 +13,7 @@ class DynamicChoice(object):
     """
     Trivial example of creating a dynamic choice
     """
+    blank_option = "- Not Selected -"
 
     def __iter__(self, *args, **kwargs):
         for choice in self.generate():
@@ -82,16 +83,20 @@ class DynamicTemplateChoices(DynamicChoice):
     path = None
     exclude = None
     inlude = None
+    default_file = None
 
     def __init__(self, path=None, include=None,
-                       exclude=None, *args, **kwargs):
+                       exclude=None, default_file="default.html",
+                       *args, **kwargs):
         super(DynamicTemplateChoices, self).__init__(self, *args, **kwargs)
         self.path = path
         self.include = include
-        self.exlude = exclude
+        self.exclude = exclude
+        self.default_file = default_file
 
-    def generate(self,*args, **kwargs):
+    def generate(self, *args, **kwargs):
         choices = list()
+        choices += ( (os.path.join(self.path,self.default_file), "Default"),)
 
         for template_dir in app_template_dirs:
           results = self.walkdir(os.path.join(template_dir, self.path))
@@ -109,10 +114,22 @@ class DynamicTemplateChoices(DynamicChoice):
         for root, dirs, files in os.walk(path):
 
             if self.include:
-                files = filter(lambda x: self.include in x, files)
+                include = [item.strip() for item in self.include.split(",")]
+                filtered_file_list = list()
+                for file_item in files :
+                    found = filter(lambda x: x in file_item, include)
+                    if len(found) > 0:
+                        filtered_file_list += (file_item, )
+                files = filtered_file_list
 
-            if self.exlude:
-                files = filter(lambda x: not self.exlude in x, files)
+            if self.exclude:
+                exclude = [item.strip() for item in self.exclude.split(",")]
+                filtered_file_list = list()
+                for file_item in files :
+                    found = filter(lambda x: x in file_item, exclude)
+                    if len(found) <= 0:
+                        filtered_file_list += (file_item, )
+                files = filtered_file_list
 
             for item in files :
                 output += ( (

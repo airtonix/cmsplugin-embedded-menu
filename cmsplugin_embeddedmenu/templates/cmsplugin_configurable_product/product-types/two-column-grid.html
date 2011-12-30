@@ -1,8 +1,0 @@
-{% for Type in Types %}
-  <div class="product span8">
-    <div class="header">
-      <a href="{% url configurable_products_types Type.name|slugify %}">{{ Type }}</a>
-    </div>
-    <div class="description"></div>
-  </div>
-{% endfor %}

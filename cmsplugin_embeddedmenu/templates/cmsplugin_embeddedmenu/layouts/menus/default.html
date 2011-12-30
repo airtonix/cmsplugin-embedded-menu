@@ -1,0 +1,7 @@
+  {% if Children and item.level < plugin.instance.depth %}
+  <ul>
+    {% for item in Children %}
+      {% include plugin.instance.item_template %}
+    {% endfor %}
+  </ul>
+  {% endif %}
