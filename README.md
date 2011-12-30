@@ -13,7 +13,6 @@ administration interface.
 ## Installation
 
 1. make sure you are using a python virtual environment
-
 ```
      virtualenv ~/Dev/virtualenv/projectname
      . ~/Dev/virtualenv/projectname/bin/activate
