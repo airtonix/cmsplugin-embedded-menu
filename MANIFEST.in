@@ -1,2 +1,2 @@
 include AUTHORS CHANGES README.md LICENSE
-recursive-include cmsplugin_configurableproduct *.py *.html
+recursive-include cmsplugin_embeddedmenu *.py *.html

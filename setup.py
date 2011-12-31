@@ -33,5 +33,4 @@ setup(
     keywords='django-cms, plugin',
     url='http://github.com/airtonix/cmsplugin-embedded-menu',
     include_package_data=True,
-    zip_safe = False,
 )
