@@ -95,14 +95,11 @@ class DynamicTemplateChoices(DynamicChoice):
         self.default_file = default_file
 
     def generate(self, *args, **kwargs):
-        choices = list()
-        choices += ( (os.path.join(self.path,self.default_file), "Default"),)
-
+        choices = ( (os.path.join(self.path,self.default_file), "Default"), )
         for template_dir in app_template_dirs:
           results = self.walkdir(os.path.join(template_dir, self.path))
           if results:
               choices += results
-
         return choices
 
     def walkdir(self, path=None):
