@@ -18,6 +18,7 @@ from menus.templatetags.menu_tags import (
 )
 from .forms import MenuPluginSettingsForm
 
+
 from .models import (
 	ApplicationSettings,
 	MenuPluginSettings,
@@ -66,3 +67,4 @@ class MenuPlugin(CMSPluginBase):
 				return context
 
 plugin_pool.register_plugin(MenuPlugin)
+
