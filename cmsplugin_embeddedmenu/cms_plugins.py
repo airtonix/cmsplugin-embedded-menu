@@ -16,7 +16,7 @@ from menus.templatetags.menu_tags import (
 	cut_after,
 	flatten,
 )
-from .forms import MenuPluginSettingsForm
+from .forms import EmbedPagesAdminForm
 
 
 from .models import (
@@ -30,7 +30,7 @@ class MenuPlugin(CMSPluginBase):
 		name = _("Embedded Menu")
 		render_template = "cmsplugin_embeddedmenu/base.html"
 		admin_preview = False
-		form = MenuPluginSettingsForm
+		form = EmbedPagesAdminForm
 
 		def render(self, context, instance, placeholder):
 
