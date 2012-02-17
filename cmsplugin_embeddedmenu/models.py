@@ -8,6 +8,7 @@ from .lib.choices import (
 	DynamicTemplateChoices,
 )
 
+
 class ApplicationSettings(AppConf):
 	TEMPLATE_PATH = os.path.join("cmsplugin_embeddedmenu", "layouts")
 	CONTAINER_TEMPLATE_PATH = os.path.join(TEMPLATE_PATH, "containers")

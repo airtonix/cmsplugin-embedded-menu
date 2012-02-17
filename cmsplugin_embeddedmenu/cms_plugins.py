@@ -3,8 +3,8 @@ from django.utils.translation import ugettext_lazy as _
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from cms.models.pluginmodel import CMSPlugin
-
 from cms.menu_bases import CMSAttachMenu
+
 from menus.base import (
 	Menu,
 	Modifier,
@@ -16,18 +16,20 @@ from menus.templatetags.menu_tags import (
 	cut_after,
 	flatten,
 )
+from .forms import MenuPluginSettingsForm
 
-from models import (
+from .models import (
 	ApplicationSettings,
 	MenuPluginSettings,
-	TEMPLATE_PATH,
 )
+
 
 class MenuPlugin(CMSPluginBase):
 		model = MenuPluginSettings
 		name = _("Embedded Menu")
 		render_template = "cmsplugin_embeddedmenu/base.html"
 		admin_preview = False
+		form = MenuPluginSettingsForm
 
 		def render(self, context, instance, placeholder):
 

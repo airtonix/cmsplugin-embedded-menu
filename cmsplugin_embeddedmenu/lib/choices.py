@@ -138,4 +138,5 @@ class DynamicTemplateChoices(DynamicChoice):
             for item in dirs :
                 output += self.walkdir(os.path.join(root, item))
 
+
         return output
