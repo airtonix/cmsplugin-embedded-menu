@@ -20,15 +20,15 @@ class MenuPluginSettings(CMSPlugin):
 	"""
 #	title = models.CharField(max_length=128, blank=True, null=True)
 
-    menu_title = models.CharField("Menu Title", 
-      blank=True, null=True, max_length=256,
-      help_text="""Title of the menu""")
-    sub_title = models.CharField("Menu Title",
-      blank=True, null=True, max_length=256,
-      help_text="""subTitle of the menu""")
-    description = models.TextField("Menu Title",
-      blank=True, null=True,
-      help_text="""Description for the menu""")
+	menu_title = models.CharField("Menu Title", 
+		blank=True, null=True, max_length=256,
+		help_text="""Title of the menu""")
+	sub_title = models.CharField("Menu Title",
+		blank=True, null=True, max_length=256,
+		help_text="""subTitle of the menu""")
+	description = models.TextField("Menu Title",
+		blank=True, null=True,
+		help_text="""Description for the menu""")
 
 	container_template = models.CharField("Plugin Template",
 		choices = DynamicTemplateChoices(
