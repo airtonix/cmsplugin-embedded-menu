@@ -16,8 +16,10 @@ class EmbedPagesAdminForm(ModelForm):
         choices = [self.fields['root'].choices.__iter__().next()]
         for page in self.fields['root'].queryset:
             choices.append(
-                (page.id,
-                 SafeString(''.join([u"&nbsp;&nbsp;&nbsp;"*page.level,
-                   page.__unicode__()]))))
+                (
+                  page.id,
+                  SafeString(''.join([u"&nbsp;&nbsp;&nbsp;"*page.level, page.__unicode__()]))
+                )
+            )
 
         self.fields['root'].choices = choices

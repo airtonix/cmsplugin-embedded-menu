@@ -38,7 +38,7 @@ class MenuPlugin(CMSPluginBase):
 						# If there's an exception (500), default context_processors may not be called.
 						request = context['request']
 				except KeyError:
-						return "There is no	`request` object in the context."
+						return _("There is no `request` object in the context.")
 
 				root_page = instance.root
 				root_page_url = root_page.get_absolute_url()
