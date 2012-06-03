@@ -79,7 +79,7 @@ is `plugin.instance` a reference to the settings model.
 
 #### base.html
 
-base.html in the `cmsplugin_configurableproduct` directory is used to load the
+base.html in the `cmsplugin_embeddedmenu` directory is used to load the
 selected template chosen in the administration interface.
 
 
@@ -97,13 +97,12 @@ templates here are provided the context :
 ## Contributions
 
 anyone is free to contribute, simply submit a merge request at
-github : http://github.com/airtonix/cmsplugin-configurableproduct
+github : http://github.com/airtonix/cmsplugin-embedded-menu
 
 
 ## Todo
 
 provide option to manipulate menu choices:
 
-* Refine the product filter.
-* Provide better default templates.
-* Allow selecting/use of snippets for menu templates?
+* Look at reducing queries.
+* Look at caching options.
