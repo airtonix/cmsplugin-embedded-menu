@@ -38,7 +38,7 @@ class MenuPluginSettings(CMSPlugin):
 		max_length = 256,
 		help_text = _("""Use this template to render the menu container"""))
 
-	tree_template = models.CharField(_("Tree Template",)
+	tree_template = models.CharField(_("Tree Template"),
 		choices = DynamicTemplateChoices(
 			path = ApplicationSettings.MENU_TEMPLATE_PATH,
 			include = '.html'),
