@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from django.utils.safestring import SafeString
+from django.utils.safestring import SafeText
 
 from .models import (
   MenuPluginSettings,
@@ -18,7 +18,7 @@ class EmbedPagesAdminForm(ModelForm):
             choices.append(
                 (
                   page.id,
-                  SafeString(''.join([u"&nbsp;&nbsp;&nbsp;"*page.level, page.__unicode__()]))
+                  SafeText(''.join([u"&nbsp;&nbsp;&nbsp;"*page.level, page.__unicode__()]))
                 )
             )
 
