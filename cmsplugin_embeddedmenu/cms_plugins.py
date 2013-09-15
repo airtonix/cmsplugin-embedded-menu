@@ -62,9 +62,7 @@ class MenuPlugin(CMSPluginBase):
 								children += root_node.children
 
 				context.update({
-						'MenuItems' : children,
-						'MenuTitle' : instance.menu_title,
-						'MenuSubtitle' : instance.sub_title,
+						'MenuItems' : children
 				})
 				return context
 
