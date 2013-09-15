@@ -65,3 +65,5 @@ class MenuPluginSettings(CMSPlugin):
 
 	depth = models.IntegerField(_("Depth"), default = 0,
 		help_text = _("""How many levels deep to look for menu items to show?"""))
+
+	def __unicode__(self): return u'%s' % self.menu_title
