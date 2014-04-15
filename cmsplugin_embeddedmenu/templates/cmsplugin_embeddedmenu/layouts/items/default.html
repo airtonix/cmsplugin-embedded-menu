@@ -1,5 +1,7 @@
+{% if item.visible %}
     <li class="{% if item.selected %}selected{% endif %}{% if item.ancestor %}ancestor{% endif %}{% if item.sibling %}sibling{% endif %}{% if item.descendant %}descendant{% endif %}"
          data-node-depth="{{ item.level }}">
      <a href="{{ item.attr.redirect_url|default:item.get_absolute_url }}">{{ item.get_menu_title }}</a>
      {% include plugin.instance.tree_template with Children=item.children %}
     </li>
+{% endif %}    
